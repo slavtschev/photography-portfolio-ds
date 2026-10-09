@@ -124,7 +124,7 @@ const allImages = sorted.flatMap(s =>
   var FADE_OUT  = 70;
   var GAP       = 90;
   var FADE_IN   = 850;   // normal transition fade
-  var INTERVAL  = 2600;
+  var INTERVAL  = 1820;  // ~30% faster than original 2600ms
 
   // First shot: centered, only used on initial load
   var FIRST_STEP = { slot: 'center', w: 220, h: 330 };
@@ -720,6 +720,8 @@ const allImages = sorted.flatMap(s =>
     user-select: none;
     -webkit-user-select: none;
     --bottom-h: 200px;  /* height reserved for the bottom bar */
+    background: var(--color-bg);
+    transition: background-color var(--dur-panel) var(--ease);
 
     /* ── Shutter color tokens (dark defaults) ─────────────────── */
     --shutter-text:         rgba(255,255,255,0.80);
@@ -891,7 +893,7 @@ const allImages = sorted.flatMap(s =>
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition: opacity var(--dur-panel) var(--ease), visibility var(--dur-panel);
+    transition: opacity var(--dur-panel) var(--ease), visibility var(--dur-panel), background-color var(--dur-panel) var(--ease);
     /* Subtle scrollbar — thin, matches theme */
     scrollbar-width: none;
   }
